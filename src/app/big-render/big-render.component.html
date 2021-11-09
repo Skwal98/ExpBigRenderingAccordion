@@ -1,0 +1,33 @@
+<app-accordion>
+        <div app-accordion-item text="First accordion">
+            <ng-template accordionItemContent>
+                inner data first {{get}}
+                <div *ngFor='let n of arr'>
+                    <span>{{n}}</span>
+                </div>
+            </ng-template>
+        </div>
+        <br>
+        <div app-accordion-item text="Second accordion">
+            <ng-template accordionItemContent>
+                inner data second {{get}}
+                <div *ngFor='let n of arr'>
+                    <span>{{n}}</span>
+                </div>
+            </ng-template>
+        </div>
+        <br>
+        <div app-accordion-item text="Third accordion">
+                inner data third {{get}}
+                <div *ngFor='let n of arr'>
+                    <span (click)='test(n)'>{{n}}</span>
+                </div>
+        </div>
+</app-accordion>
+
+
+<style>
+    :host{
+        margin: 20px;
+    }
+</style>

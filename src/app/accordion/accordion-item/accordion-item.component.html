@@ -1,0 +1,18 @@
+<div class="card-header"
+     (click)="collapseModeClick()">
+  <div class="card-title" [class.collapsed]="collapsed" [class.text-danger]="!isValid && isValid !== undefined">
+    <i *ngIf="iconClass" [class]="iconClass"></i>
+    <ng-container *ngIf="!headerTemplate else headerTemplate">
+      <span>{{text}}</span>
+    </ng-container>
+  </div>
+</div>
+<ng-container *ngIf="hasContentAtDOM">
+  <div [@slide]="collapsed ? 'up' : 'down'" (@slide.done)="animationDone()"  class="card-body"
+       role="tabpanel">
+    <div class="tab-content">
+      <ng-content></ng-content>
+      <ng-container #contentContainer></ng-container>
+    </div>
+  </div>
+</ng-container>
